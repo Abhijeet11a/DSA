@@ -1,24 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool distinctdigicheck(int x) {
+    set<int> s;
+
+    while(x > 0) {
+        int digit = x % 10;
+        s.insert(digit);
+        x /= 10;
+    }
+
+    return s.size() == 4;
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int y[4]= {0};
-    int freq[10] = {0};
-
-    for(int i=0; i<4; i++)
-    cin >> y[i];
-
-    boolean isUnique (int arr[])
+     int year, n;
+    cin >> year;
+    n=year+1;
+    while (true)
     {
-      for (int i=0;i<4;i++){
-        freq[arr[i]]++;
+
+      if(distinctdigicheck(n)){
+      cout << n;
+      break;
       }
+      else
+      n++;   
     }
+
     return 0;
 }
-
